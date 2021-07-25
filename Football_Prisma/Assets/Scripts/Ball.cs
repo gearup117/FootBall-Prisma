@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     Rigidbody rb;
-    float speed = 45f;
+    float speed = 35f;
     Vector3 lastVelocity;
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class Ball : MonoBehaviour
         {
             dir = 1f;
         }
-        rb.AddForce(new Vector3(Random.Range(-0.2f, 0.2f) * speed / 2, 0, dir * speed), ForceMode.Impulse);
+        rb.AddForce(new Vector3(Random.Range(-0.2f, 0.2f), 0, dir * speed), ForceMode.Impulse);
     }
     private void OnCollisionEnter(Collision collision)
     {

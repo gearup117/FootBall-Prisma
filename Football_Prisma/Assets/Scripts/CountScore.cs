@@ -13,7 +13,7 @@ public class CountScore : MonoBehaviour
     public TextMeshProUGUI playerNameText;
     private void Start()
     {
-        view = GetComponentInParent<PhotonView>();
+        view = GetComponent<PhotonView>();
         if (!view.IsMine)
         {
             scoreText.gameObject.SetActive(false);
@@ -28,9 +28,9 @@ public class CountScore : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (view.IsMine)
+        if (other.tag == "Ball")
         {
-            if (other.tag == "Ball")
+            if (view.IsMine)
             {
                 score++;
                 scoreText.text = score.ToString();
